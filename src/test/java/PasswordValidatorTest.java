@@ -24,6 +24,11 @@ class PasswordValidatorTest {
     }
 
     @Test
+    public void passwordShouldBeSmallerThanTwentyFiveAndLargerThanEight() {
+        assertTrue(passwordValidator.checkPasswordLength("greatPassword"));
+    }
+
+    @Test
     public void passwordShouldNotConsistOnlyLowerCase() {
         assertFalse(passwordValidator.checkPasswordUpperLowerCase("lowercase"));
     }
@@ -31,6 +36,11 @@ class PasswordValidatorTest {
     @Test
     public void passwordShouldNotConsistOnlyUpperCase() {
         assertFalse(passwordValidator.checkPasswordUpperLowerCase("UPPERCASE"));
+    }
+
+    @Test
+    public void passwordShouldConsistUpperAndLowerCase() {
+        assertTrue(passwordValidator.checkPasswordUpperLowerCase("UPPERCASElowercase"));
     }
 
     @Test
